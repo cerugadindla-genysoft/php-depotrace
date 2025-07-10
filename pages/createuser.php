@@ -870,8 +870,8 @@ input, textarea {
     <div class="input-wrapper">
       <span class="static-label">Phone Number <span class="required-star">*</span></span>
       <!-- <input type="tel" name="phoneNumber" /> -->
-      <input type="tel" name="phoneNumber" id="phoneNumber" />
-
+      <input type="tel" name="phoneNumber" id="phoneNumber" /> 
+      <!-- <input type="hidden" id="fullPhone" name="fullPhone"> -->
     </div>
     <span class="error-message"></span>
   </div>
@@ -1169,8 +1169,7 @@ document.querySelectorAll('.input-wrapper select').forEach(select => {
 
   // phoneNumber 
  
-
-document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function () {
   const input = document.querySelector("#phoneNumber");
   const countrySelect = document.getElementById("country");
 

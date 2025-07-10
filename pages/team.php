@@ -535,13 +535,13 @@ thead th {
 
 /* Density classes for table rows */
 .table-row.compact td {
-  padding: 4px 6px;
+  padding: 0px 0px;
 }
 .table-row.standard td {
-  padding: 8px 12px;
+  padding: 2px 4px;
 }
 .table-row.comfortable td {
-  padding: 14px 20px;
+  padding: 4px 8px;
 }
 .header-cell {
   display: flex;
@@ -1983,7 +1983,7 @@ document.getElementById("downloadCSV").addEventListener("click", function () {
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.setAttribute("href", url);
-  link.setAttribute("download", "team_members.csv");
+  link.setAttribute("download", "users.csv");
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);

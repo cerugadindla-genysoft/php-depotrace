@@ -3,6 +3,14 @@
   <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.js"></script>
+
+
+
+
+
 
 
   <style>
@@ -1088,8 +1096,8 @@ body.dark-mode .filter-dropdown span {
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
   margin-top: 40px;
-  
-
+  position: relative;
+  z-index: 999;
 }
 
 .date-input {
@@ -1099,12 +1107,20 @@ body.dark-mode .filter-dropdown span {
   color: #33B0F7;
 }
 
-.date-input input[type="text"] { 
+.date-input input[type="text"] {
   width: 100px;
-    height: 25px;
-    text-align: center;
-    border: 1px solid rgb(220, 220, 220);
-    font-family: poppins, sans-serif;
+  height: 25px;
+  text-align: center;
+  border: 1px solid rgb(220, 220, 220);
+  font-family: poppins, sans-serif;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: 1px solid rgb(220, 220, 220) !important;
 }
 
 .submit-btn {
@@ -1112,18 +1128,43 @@ body.dark-mode .filter-dropdown span {
   background-color: #33b0ff;
   color: white;
   font-family: Poppins, sans-serif;
-    font-weight: 500;
-    font-size: 0.75rem;
-    line-height: 1.75;
-    text-transform: uppercase;
-   border: none;
-    border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.75;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
   transition: background 0.3s ease;
 }
 
 .submit-btn:hover {
   background-color: #229be0;
 }
+.date-input input[type="text"] {
+  width: 100px;
+  height: 25px;
+  text-align: center;
+  border: 1px solid rgb(220, 220, 220);
+  font-family: poppins, sans-serif;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.date-input input[type="text"]:focus {
+  border: 1px solid rgb(220, 220, 220);
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1144,6 +1185,7 @@ body.dark-mode .filter-dropdown span {
   </div>
   <button class="submit-btn">SUBMIT</button>
 </div>
+
 
 
 <!-- Then the Team Header -->
@@ -2275,6 +2317,19 @@ document.addEventListener('mousedown', function (e) {
       }
     });
   });
+ 
+
+  document.addEventListener("DOMContentLoaded", function () {
+      flatpickr("#startDate", {
+        dateFormat: "d-m-Y",
+        allowInput: true
+      });
+
+      flatpickr("#endDate", {
+        dateFormat: "d-m-Y",
+        allowInput: true
+      });
+    });
 
 
 
