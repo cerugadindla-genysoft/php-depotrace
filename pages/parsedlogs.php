@@ -1,11 +1,13 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+ 
+
+
 
 
 
@@ -808,14 +810,10 @@ table, th {
   height: 100%;
   overflow: auto;
 }
-body, html, * {
-  user-select: none !important;
-  caret-color: transparent !important;
-}
-input, textarea {
-  user-select: text !important;
-  caret-color: auto !important;
-}
+
+
+
+
 /* darkmode functionality */
 body.dark-mode {
   background-color: #12172C;
@@ -1112,17 +1110,36 @@ body.dark-mode .filter-dropdown span {
   height: 25px;
   text-align: center;
   border: 1px solid rgb(220, 220, 220);
+  border-radius: 4px; /* ADD THIS */
   font-family: poppins, sans-serif;
+  background-color: white;
+  color: #333;
   outline: none !important;
   box-shadow: none !important;
 }
 
-input:focus {
+.date-input input[type="text"]:focus {
+  border: 1px solid #33B0F7 !important; /* Blue border on focus */
   outline: none !important;
   box-shadow: none !important;
-  border: 1px solid rgb(220, 220, 220) !important;
+  border-radius: 4px !important;
 }
 
+input[type="text"]::-webkit-inner-spin-button,
+input[type="text"]::-webkit-calendar-picker-indicator {
+  display: none !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border: 1px solid #ccc !important;
+  border-radius: 4px !important;
+}
+
+/* ✅ FIX for cursor on submit button */
 .submit-btn {
   padding: 5px 15px;
   background-color: #33b0ff;
@@ -1135,35 +1152,87 @@ input:focus {
   border: none;
   border-radius: 4px;
   transition: background 0.3s ease;
+  cursor: pointer !important;
+
 }
 
 .submit-btn:hover {
   background-color: #229be0;
+  cursor: pointer; 
 }
-.date-input input[type="text"] {
-  width: 100px;
-  height: 25px;
-  text-align: center;
-  border: 1px solid rgb(220, 220, 220);
-  font-family: poppins, sans-serif;
-  box-shadow: none !important;
+button,
+input[type="submit"],
+.submit-btn {
+  cursor: pointer !important;
+}
+
+.ui-datepicker {
+  font-family: Poppins, sans-serif;
+  font-size: 14px;
+  z-index: 10000 !important;
+}
+
+input:-webkit-autofill {
+  border: 1px solid #ccc !important;
+  background-color: white !important;
+}
+
+.submit-btn:hover {
+  cursor: pointer !important;
+}
+input[type="date"] {
+  appearance: auto; /* Don't block default calendar UI */
+  -webkit-appearance: auto;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  box-shadow: 0 0 0 1000px white inset !important;
+  -webkit-box-shadow: 0 0 0 1000px white inset !important;
+  border: 1px solid #ccc !important;
+  border-radius: 4px !important;
+  background-color: white !important;
+}
+input[type="text"],
+input[type="text"]:focus {
   outline: none !important;
-}
-
-.date-input input[type="text"]:focus {
-  border: 1px solid rgb(220, 220, 220);
   box-shadow: none !important;
+  border: 1px solid #ccc !important;
+  caret-color: auto !important;
+  -moz-outline-style: none !important;
+}
+button,
+input[type="submit"],
+.submit-btn {
+  cursor: pointer !important;
+  user-select: auto !important;
+  caret-color: auto !important;
+}
+/* Clean focus/active border from all date inputs */
+input[type="text"],
+input[type="text"]:focus,
+input[type="text"]:active {
   outline: none !important;
+  box-shadow: none !important;
+  border: 1px solid #ccc !important;
+  background-color: white !important;
+}
+
+/* Add blue border on focus if needed */
+input[type="text"]:focus {
+  border: 1px solid #33B0F7 !important;
 }
 
 
 
-
-
-
-
-
-
+/* Handle autofill styles */
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:hover {
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+  box-shadow: none !important;
+  border: 1px solid #ccc !important;
+  background-color: white !important;
+}
 
 
 
@@ -1173,18 +1242,20 @@ input:focus {
 <body>
 
 <!-- Date Filter Bar FIRST -->
-
 <div class="date-filter-bar">
   <div class="date-input">
     <label for="startDate">Start Date :</label>
-    <input type="text" id="startDate" name="startDate" placeholder="DD-MM-YYYY">
+    <!-- <input type="text" id="startDate" name="startDate" placeholder="DD-MM-YYYY"> -->
+    <input type="text" id="startDate" placeholder="DD-MM-YYYY" autocomplete="off">
   </div>
   <div class="date-input">
     <label for="endDate">End Date :</label>
-    <input type="text" id="endDate" name="endDate" placeholder="DD-MM-YYYY">
+    <!-- <input type="text" id="endDate" name="endDate" placeholder="DD-MM-YYYY"> -->
+    <input type="text" id="endDate" placeholder="DD-MM-YYYY" autocomplete="off">
   </div>
-  <button class="submit-btn">SUBMIT</button>
+  <button class="submit-btn" type="submit">SUBMIT</button>
 </div>
+
 
 
 
@@ -1572,6 +1643,8 @@ if ($result && $result->num_rows > 0) {
       </div>
     </div>
   </div>
+
+
 
   <script  >
     const densityToggle = document.getElementById("densityToggle");
@@ -1989,7 +2062,7 @@ document.getElementById("downloadCSV").addEventListener("click", function () {
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.setAttribute("href", url);
-  link.setAttribute("download", "team_members.csv");
+  link.setAttribute("download", "parsedlogs.csv");
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
@@ -2318,24 +2391,21 @@ document.addEventListener('mousedown', function (e) {
     });
   });
  
+ 
 
-  document.addEventListener("DOMContentLoaded", function () {
-      flatpickr("#startDate", {
-        dateFormat: "d-m-Y",
-        allowInput: true
-      });
-
-      flatpickr("#endDate", {
-        dateFormat: "d-m-Y",
-        allowInput: true
-      });
-    });
-
-
-
-
-
+ 
   </script>
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
 

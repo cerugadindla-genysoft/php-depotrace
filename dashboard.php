@@ -36,10 +36,17 @@ if ($page !== 'dashboard' && !file_exists($file_path)) {
     <title>DepoTrace</title>
     <link rel="icon" type="image/x-icon" href="./depotrace-fevicon.png">
     <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+
+
+   
+
 </head>
 <body>
 <style>
@@ -288,6 +295,18 @@ if (isset($_FILES['profileImage'])) {
 
 </div>
 
+
+
+<!-- ✅ Flatpickr library -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<!-- ✅ Your custom logic -->
 <script src="script.js"></script>
+
+
+
+
+
+
 </body>
 </html>

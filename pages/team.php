@@ -37,10 +37,11 @@ body.dark-mode #themeToggle i {
   color: #fff !important;
 }
     .team-header h3{
-      color: #33B0F7;
-      font-weight: 900;
-      font-size: 20px;
-      margin-bottom: 6px;
+    
+      line-height: 1.2;
+    color: #33B0F7;
+    font-weight: 700;
+    margin-bottom: 5px;
     }
 
     .team-header p {

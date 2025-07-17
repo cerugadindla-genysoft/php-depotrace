@@ -181,4 +181,26 @@ document.getElementById("closeSidebar").addEventListener("keydown", function(e) 
   });
 
   
-
+// script.js
+function initFlatpickrIfNeeded() {
+    const currentPage = window.location.href;
+  
+    // Only initialize on parsedlogs or sessions page
+    if (currentPage.includes("parsedlogs") || currentPage.includes("sessions")) {
+      const start = document.querySelector("#startDate");
+      const end = document.querySelector("#endDate");
+  
+      if (start) {
+        flatpickr(start, { dateFormat: "d-m-Y" });
+      }
+      if (end) {
+        flatpickr(end, { dateFormat: "d-m-Y" });
+      }
+    }
+  }
+  
+  // Call after page load
+  document.addEventListener("DOMContentLoaded", function () {
+    initFlatpickrIfNeeded();
+  });
+  
